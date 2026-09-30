@@ -24,10 +24,10 @@ npm run dev      # http://localhost:4321
 
 1. Push to `CR-DGD/CRDGD.github.io` (this repo). The site goes live at https://crdgd.github.io.
 2. Repo → **Settings → Pages → Source: GitHub Actions**.
-3. **Custom domain:** create `public/CNAME` containing just your domain (e.g. `yourdomain.com`), and update `site:` in `astro.config.mjs` to match.
+3. **Custom domain:** `public/CNAME` holds `crdgd.dev`, and `site:` in `astro.config.mjs` matches it. Change both together if the domain ever changes.
 4. At your domain registrar, **remove the Linktree redirect** and add the DNS records:
    - Apex domain (`yourdomain.com`): four `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `www`: a `CNAME` → `crdgd.github.io`
+   - `www`: a `CNAME` → `cr-dgd.github.io`
 5. Back in **Settings → Pages**, enter the custom domain, wait for the DNS check, then tick **Enforce HTTPS**.
 
 Every push to `main` rebuilds and redeploys the site automatically after that.

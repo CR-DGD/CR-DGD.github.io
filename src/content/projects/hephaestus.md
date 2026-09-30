@@ -12,7 +12,7 @@ links: []
 
 ## What it is
 
-Hephaestus is a rocket with a flight computer I'm building on Arduino in embedded C++. It combines a BMP280 barometer with two MPU6050 IMUs to estimate the vehicle's state and streams telemetry in real time.
+Hephaestus is a rocket with a flight computer I'm building on Arduino in embedded C++. It combines a BMP280 barometer with two MPU6050 IMUs to estimate the vehicle's state, and logs flight telemetry to an onboard SD card.
 
 ## What I worked on
 

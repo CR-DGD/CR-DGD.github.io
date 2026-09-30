@@ -12,6 +12,10 @@ aspect: "1920 / 600"
 links:
   - label: Wishlist on Steam
     href: "https://store.steampowered.com/app/4756030/Perihelion/"
+  - label: Website
+    href: "https://periheliongame.net"
+  - label: Join the Discord
+    href: "https://discord.gg/RNc5rr6rRa"
 ---
 
 ## What it is

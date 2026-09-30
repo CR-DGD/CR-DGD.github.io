@@ -2,6 +2,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://cr-dgd.github.io", // switch to your custom domain once DNS is set up
-  // Using a custom domain on GitHub Pages, so no `base` is needed.
+  site: "https://crdgd.dev",
+  // Custom domain (see public/CNAME), so no `base` is needed.
 });
