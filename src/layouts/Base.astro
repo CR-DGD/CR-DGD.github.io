@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+import { site } from "../site.config";
+
+interface Props { title?: string; description?: string; }
+const { title, description = site.tagline } = Astro.props;
+const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.role}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a href="/" class="brand">{site.name.split(" ")[0]}<span class="last"> {site.name.split(" ").slice(1).join(" ")}</span></a>
+        <nav>
+          <a href="/#projects">Projects</a>
+          {(site.itchGames.length > 0 || site.links.itch) && <a href="/#games">Games</a>}
+          <a href="/#experience">Experience</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="wrap foot">
+      <span>© {new Date().getFullYear()} {site.name}</span>
+      <span class="eyebrow">Built with Astro</span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11, 13, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  .brand { font-weight: 600; text-decoration: none; letter-spacing: -0.01em; }
+  nav { display: flex; gap: 22px; }
+  nav a { text-decoration: none; color: var(--muted); font-size: 15px; }
+  nav a:hover { color: var(--text); }
+  .foot {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    padding: 32px 20px 48px; color: var(--muted); font-size: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .brand { white-space: nowrap; }
+  @media (max-width: 520px) { nav { gap: 12px; } nav a { font-size: 13.5px; } .brand { font-size: 15px; } }
+  @media (max-width: 400px) { .brand .last { display: none; } }
+</style>

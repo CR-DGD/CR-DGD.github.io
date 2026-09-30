@@ -1,0 +1,59 @@
+---
+import Base from "../../layouts/Base.astro";
+import Media from "../../components/Media.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+  return projects.map((p, i) => ({
+    params: { id: p.id },
+    props: { project: p, next: projects[(i + 1) % projects.length] },
+  }));
+}
+
+const { project, next } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+---
+<Base title={d.title} description={d.summary}>
+  <article class="wrap" style={`--accent:${d.accent}`}>
+    <a class="back eyebrow" href="/#projects">← All projects</a>
+    <p class="eyebrow">{d.role} · {d.period}</p>
+    <h1>{d.title}</h1>
+    <p class="summary">{d.summary}</p>
+    <ul class="tags">{d.tags.map((t) => <li>{t}</li>)}</ul>
+    {d.links.length > 0 && (
+      <div class="links">{d.links.map((l) => <a class="btn" href={l.href}>{l.label} ↗</a>)}</div>
+    )}
+    <div class="hero-media"><Media media={d.media} poster={d.poster} title={d.title} accent={d.accent} aspect={d.aspect} /></div>
+    <div class="prose"><Content /></div>
+    <a class="next" href={`/projects/${next.id}/`}>
+      <span class="eyebrow">Next project</span>
+      <strong>{next.data.title} →</strong>
+    </a>
+  </article>
+</Base>
+
+<style>
+  article { padding-top: 48px; padding-bottom: 80px; }
+  .back { display: inline-block; text-decoration: none; margin-bottom: 36px; }
+  .back:hover { color: var(--text); }
+  h1 { font-size: clamp(38px, 6vw, 56px); letter-spacing: -0.03em; line-height: 1.05; margin: 10px 0 14px; }
+  .summary { font-size: 20px; color: var(--muted); max-width: 55ch; margin: 0 0 18px; }
+  .links { display: flex; gap: 10px; margin-top: 20px; }
+  .hero-media { margin: 36px 0 12px; }
+  .prose { max-width: 68ch; }
+  .prose :global(h2) { font-size: 22px; margin: 44px 0 10px; letter-spacing: -0.01em; }
+  .prose :global(p), .prose :global(li) { color: #c9cfdb; }
+  .prose :global(li) { margin: 6px 0; }
+  .prose :global(strong) { color: var(--text); }
+  .prose :global(a) { color: var(--accent); }
+  .prose :global(code) { font-family: var(--mono); font-size: .9em; background: var(--bg-2); padding: 1px 6px; border-radius: 4px; }
+  .next {
+    display: flex; flex-direction: column; gap: 4px; margin-top: 64px;
+    padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+    text-decoration: none; transition: border-color .2s;
+  }
+  .next:hover { border-color: var(--muted); }
+  .next strong { font-size: 20px; }
+</style>

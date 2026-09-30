@@ -1,0 +1,41 @@
+---
+// Shows a looping video, gif, or image if one is set.
+// Otherwise it shows a placeholder so the layout still looks intentional.
+interface Props { media?: string; poster?: string; title: string; accent: string; aspect?: string; }
+const { media, poster, title, accent, aspect = "16 / 9" } = Astro.props;
+const isVideo = media && /\.(mp4|webm|mov)$/i.test(media);
+const initials = title.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+---
+<div class="media" style={`--a:${accent}; aspect-ratio:${aspect}`}>
+  {isVideo ? (
+    <video src={media} poster={poster} autoplay muted loop playsinline disablepictureinpicture preload="metadata" aria-label={`${title} gameplay clip`} />
+  ) : media ? (
+    <img src={media} alt={`${title} screenshot`} loading="lazy" />
+  ) : (
+    <div class="ph" aria-hidden="true">
+      <span>{initials}</span>
+      <small>add /media clip</small>
+    </div>
+  )}
+</div>
+
+<style>
+  .media {
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+  }
+  .media video, .media img { width: 100%; height: 100%; object-fit: cover; }
+  .ph {
+    width: 100%; height: 100%;
+    display: grid; place-content: center; text-align: center; gap: 6px;
+    background:
+      radial-gradient(120% 90% at 85% 10%, color-mix(in srgb, var(--a) 35%, transparent), transparent 60%),
+      radial-gradient(90% 80% at 10% 100%, color-mix(in srgb, var(--a) 18%, transparent), transparent 60%),
+      var(--bg-2);
+  }
+  .ph span { font-size: 44px; font-weight: 700; letter-spacing: -0.03em; color: var(--a); }
+  .ph small { font-family: var(--mono); font-size: 11px; color: var(--muted); opacity: .7; }
+</style>
