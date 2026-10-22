@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
-  name: "Connor Rowland", // TODO: confirm how you want your name shown
+  name: "Connor Rowland",
   role: "Game & Software Developer",
   tagline:
     "I build simulation games, multiplayer systems, and the occasional flight computer. Senior BFA in Digital Game Development at LIU Post.",
