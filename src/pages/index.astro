@@ -44,7 +44,7 @@ const contact = [
             <Media media={p.data.media} poster={p.data.poster} title={p.data.title} accent={p.data.accent} aspect={i === 0 ? p.data.aspect : undefined} />
             <div class="body">
               <p class="eyebrow">{p.data.role} · {p.data.period}</p>
-              <h3>{p.data.title} <span class="arrow">→</span></h3>
+              <h3>{p.data.title} <span class="arrow" aria-hidden="true">→</span></h3>
               <p class="sum">{p.data.summary}</p>
               <ul class="tags">{p.data.tags.map((t) => <li>{t}</li>)}</ul>
             </div>
@@ -67,10 +67,10 @@ const contact = [
           {site.itchGames.map((g) => (
             <a class="game" href={g.url} target="_blank" rel="noopener">
               <div class={`thumb ${g.thumb ? "" : "empty"}`}>
-                {g.thumb ? <img src={g.thumb} alt={`${g.title} cover`} loading="lazy" referrerpolicy="no-referrer" /> : <span>{g.title.slice(0, 1)}</span>}
+                {g.thumb ? <img src={g.thumb} alt="" loading="lazy" referrerpolicy="no-referrer" /> : <span>{g.title.slice(0, 1)}</span>}
               </div>
               <div class="gbody">
-                <h3>{g.title} <span class="ext">↗</span></h3>
+                <h3>{g.title} <span class="ext" aria-hidden="true">↗</span></h3>
                 <p>{g.blurb}</p>
                 {g.tags && <ul class="tags">{g.tags.map((t) => <li>{t}</li>)}</ul>}
               </div>
