@@ -22,7 +22,7 @@ npm run dev      # http://localhost:4321
 
 ## Deploy to GitHub Pages with your domain
 
-1. Push to `CR-DGD/CRDGD.github.io` (this repo). The site goes live at https://crdgd.github.io.
+1. Push to `CR-DGD/CR-DGD.github.io` (this repo). The site goes live at https://cr-dgd.github.io, which redirects to the custom domain once it's set.
 2. Repo → **Settings → Pages → Source: GitHub Actions**.
 3. **Custom domain:** `public/CNAME` holds `crdgd.dev`, and `site:` in `astro.config.mjs` matches it. Change both together if the domain ever changes.
 4. At your domain registrar, **remove the Linktree redirect** and add the DNS records:
