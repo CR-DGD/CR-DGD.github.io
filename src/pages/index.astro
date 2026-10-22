@@ -19,8 +19,18 @@ const contact = [
   L.steam && { label: "Steam", href: L.steam },
   L.itch && { label: "itch.io", href: L.itch },
 ].filter(Boolean) as { label: string; href: string }[];
+// Tells search engines this site and these profiles belong to one person.
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.role,
+  url: Astro.site?.href,
+  sameAs: [L.github, L.linkedin, L.itch].filter(Boolean),
+};
 ---
 <Base>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(person)} />
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow">{site.role} · {site.location}</p>
