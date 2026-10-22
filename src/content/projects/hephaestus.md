@@ -6,7 +6,7 @@ period: Dec 2025 – present
 tags: [C++, Arduino, Python, Embedded, Sensor fusion, Telemetry]
 order: 3
 accent: "#7aa2ff"
-media: /media/Hepheastus.mp4
+media: /media/hephaestus.mp4
 links: []
 ---
 
