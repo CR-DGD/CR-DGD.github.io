@@ -25,7 +25,7 @@ const d = project.data;
     {d.links.length > 0 && (
       <div class="links">{d.links.map((l) => <a class="btn" href={l.href}>{l.label} ↗</a>)}</div>
     )}
-    <div class="hero-media"><Media media={d.media} poster={d.poster} title={d.title} accent={d.accent} aspect={d.aspect} /></div>
+    <div class="hero-media"><Media media={d.media} poster={d.poster} title={d.title} accent={d.accent} aspect={d.aspect} controls /></div>
     <div class="prose"><Content /></div>
     <a class="next" href={`/projects/${next.id}/`}>
       <span class="eyebrow">Next project</span>

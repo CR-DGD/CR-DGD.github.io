@@ -1,14 +1,15 @@
 ---
 // Shows a looping video, gif, or image if one is set.
 // Otherwise it shows a placeholder so the layout still looks intentional.
-interface Props { media?: string; poster?: string; title: string; accent: string; aspect?: string; }
-const { media, poster, title, accent, aspect = "16 / 9" } = Astro.props;
+// `controls` adds a pause button. Leave it off inside links (the home cards), where controls aren't allowed.
+interface Props { media?: string; poster?: string; title: string; accent: string; aspect?: string; controls?: boolean; }
+const { media, poster, title, accent, aspect = "16 / 9", controls = false } = Astro.props;
 const isVideo = media && /\.(mp4|webm|mov)$/i.test(media);
 const initials = title.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
 ---
 <div class="media" style={`--a:${accent}; aspect-ratio:${aspect}`}>
   {isVideo ? (
-    <video src={media} poster={poster} autoplay muted loop playsinline disablepictureinpicture preload="metadata" aria-label={`${title} gameplay clip`} />
+    <video src={media} poster={poster} autoplay muted loop playsinline disablepictureinpicture preload="metadata" controls={controls} aria-label={`${title} gameplay clip`} />
   ) : media ? (
     <img src={media} alt={`${title} screenshot`} loading="lazy" />
   ) : (
@@ -18,6 +19,12 @@ const initials = title.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUppe
     </div>
   )}
 </div>
+
+<script>
+  // The reduced-motion CSS can't stop <video autoplay>, so pause the clips here.
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches)
+    document.querySelectorAll<HTMLVideoElement>(".media video").forEach((v) => v.pause());
+</script>
 
 <style>
   .media {
