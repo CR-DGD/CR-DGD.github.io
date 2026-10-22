@@ -7,6 +7,7 @@ tags: [Unity, Photon Fusion, Multiplayer, iOS, Android, GitHub Actions]
 order: 2
 accent: "#3dd6a3"
 media: /media/cubilete-phone.mp4
+poster: /media/cubilete-phone.jpg
 links: []
 ---
 

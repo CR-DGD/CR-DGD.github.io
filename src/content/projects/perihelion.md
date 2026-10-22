@@ -8,7 +8,7 @@ order: 1
 accent: "#ff7a3d"
 media: /media/perihelion.mp4
 aspect: "1920 / 600"
-# poster: /media/perihelion.jpg
+poster: /media/perihelion.jpg
 links:
   - label: Wishlist on Steam
     href: "https://store.steampowered.com/app/4756030/Perihelion/"

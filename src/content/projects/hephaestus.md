@@ -7,6 +7,7 @@ tags: [C++, Arduino, Python, Embedded, Sensor fusion, Telemetry]
 order: 3
 accent: "#7aa2ff"
 media: /media/hephaestus.mp4
+poster: /media/hephaestus.jpg
 links: []
 ---
 
