@@ -26,14 +26,14 @@ export const site = {
       org: "Cubilete Cup",
       when: "Jun 2026 – Present",
       detail:
-        "UI upgrades, Photon Fusion multiplayer networking, player-presence and connection-state systems, iOS/Android CI/CD release pipelines.",
+        "Shipped 8 releases (v0.3 – v2.0.2) to iOS and Android on a three-person team. Led the zero-downtime v1 → v2 backend cutover (16 new Cloud Functions), built 18 v2.0 screens in UI Toolkit, and built most of the player-presence system.",
     },
     {
       title: "Founder & Lead Developer",
       org: "Tritium Softworks",
       when: "May 2025 – Present",
       detail:
-        "Leading a team of 3 on Perihelion, a rocket-engine simulation game coming to Steam.",
+        "Leading a team of 3 on Perihelion, a rocket-engine simulation game coming to Steam. Shown at NYC Games Festival 2026; 176 wishlists as of Oct 2026.",
     },
     {
       title: "BFA, Digital Game Development",

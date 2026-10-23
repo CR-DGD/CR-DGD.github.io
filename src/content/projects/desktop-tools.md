@@ -12,7 +12,7 @@ links: []
 
 ## What it is
 
-A checklist app I built for myself to stay on task. It holds everything I need to get done as tasks and subtasks.
+A checklist app I built for myself to stay on task. It holds everything I need to get done as tasks and subtasks, and I've used it since February 2026.
 
 ## What I worked on
 
