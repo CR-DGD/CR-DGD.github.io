@@ -36,10 +36,17 @@ export const site = {
         "Leading a team of 3 on Perihelion, a rocket-engine simulation game coming to Steam. Shown at NYC Games Festival 2026; 176 wishlists as of Oct 2026.",
     },
     {
+      title: "Head, Showcase Committee",
+      org: "Long Island University",
+      when: "Jan 2026 – Present",
+      detail:
+        "Co-head since May 2025. On a two-person committee, ran 3 Winter Playtest and Spring Showcase events, each with about 40 attendees and 32 games. Also organized the 3x3 Jam, a three-week, three-engine game jam with 18 entries.",
+    },
+    {
       title: "BFA, Digital Game Development",
       org: "Long Island University",
       when: "2023 – 2027",
-      detail: "GPA ~3.9. Full-ride scholarship.",
+      detail: "GPA 3.9. Full-ride scholarship. Dean's List, 5 semesters.",
     },
   ],
 
