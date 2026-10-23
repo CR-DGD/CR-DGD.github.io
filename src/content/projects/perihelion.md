@@ -20,7 +20,7 @@ links:
 
 ## What it is
 
-Perihelion is a rocket-engine simulation game I founded and lead at Tritium Softworks, a three-person team. It's built in Unity with C#, with part data driven through JSON. A teammate owns the physics math and simulation model; I built the rest of the game around it.
+Perihelion is a rocket-engine simulation game I founded and lead at Tritium Softworks, a three-person team. It's built in Unity with C#, with part data driven through JSON. A teammate owns the physics math and simulation model, apart from the fluid network, which is mine. I built the rest of the game around it.
 
 ## What I worked on
 
